@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import Mural from "./components/Mural";
 import store from "./store";
 import registerServiceWorker from "./registerServiceWorker";
 
-const App = () => <h1>Mural</h1>;
-
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Mural />
   </Provider>,
   document.getElementById("root")
 );
