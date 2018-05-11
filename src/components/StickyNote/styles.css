@@ -1,0 +1,8 @@
+.StickyNote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
