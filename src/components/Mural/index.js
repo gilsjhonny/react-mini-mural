@@ -1,3 +1,3 @@
-import Mural from "./Mural";
+import Mural from "./Mural.container";
 
 export default Mural;
