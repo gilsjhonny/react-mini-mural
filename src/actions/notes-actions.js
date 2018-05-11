@@ -1,10 +1,10 @@
 import uniqueId from "lodash/uniqueId";
 import { ADD_NEW_NOTE, REMOVE_NOTE } from "../actionTypes";
 
-export const addNewNote = text => ({
+export const addNewNote = note => ({
   type: ADD_NEW_NOTE,
   id: uniqueId(),
-  text
+  note
 });
 
 export const removeNote = id => ({

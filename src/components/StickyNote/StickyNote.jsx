@@ -28,7 +28,7 @@ class StickyNote extends React.Component {
           width,
           height,
           background: color,
-          transform: `translate(${x},${y})`
+          transform: `translate(${x}px,${y}px)`
         }}
       >
         {text}
