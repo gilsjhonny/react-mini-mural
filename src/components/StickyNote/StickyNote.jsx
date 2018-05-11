@@ -5,19 +5,22 @@ class StickyNote extends React.Component {
   static propTypes = {
     color: PropTypes.number.string,
     height: PropTypes.number.string,
-    width: PropTypes.number.string
+    width: PropTypes.number.string,
+    x: PropTypes.number.string,
+    y: PropTypes.number.string
   };
 
   static defaultProps = {
+    text: "",
     color: "#b1d6d0",
     height: "100px",
     width: "100px",
-    top: "0",
-    left: "0"
+    x: "0",
+    y: "0"
   };
 
   render() {
-    const { color, height, width, top, left } = this.props;
+    const { text, color, height, width, x, y } = this.props;
     return (
       <div
         className="StickyNote"
@@ -25,10 +28,10 @@ class StickyNote extends React.Component {
           width,
           height,
           background: color,
-          transform: `translate(${top},${left})`
+          transform: `translate(${x},${y})`
         }}
       >
-        Some Note
+        {text}
       </div>
     );
   }
