@@ -9,7 +9,8 @@ class StickyNote extends React.Component {
     width: PropTypes.number.string,
     x: PropTypes.number.string,
     y: PropTypes.number.string,
-    selected: PropTypes.bool
+    selected: PropTypes.bool,
+    addSelectedNote: PropTypes.func
   };
 
   static defaultProps = {
@@ -22,8 +23,22 @@ class StickyNote extends React.Component {
     selected: false
   };
 
+  constructor(props) {
+    super(props);
+    this.note = React.createRef();
+  }
+
+  componentDidMount() {
+    this.note.current.addEventListener("click", this.handleClick);
+  }
+
+  handleClick = e => {
+    this.props.addSelectedNote(e.target.id);
+    // this.setState(prevState => ({ selected: !prevState.selected }));
+  };
+
   render() {
-    const { text, color, height, width, x, y, selected } = this.props;
+    const { id, text, color, height, width, x, y, selected } = this.props;
     const StickyNoteClassnames = classnames("StickyNote", {
       selected: selected
     });
@@ -37,7 +52,13 @@ class StickyNote extends React.Component {
           transform: `translate(${x}px,${y}px)`
         }}
       >
-        <div className="container" style={{ background: color }}>
+        <div
+          className="container"
+          style={{ background: color }}
+          ref={this.note}
+          id={id}
+          data-type="sticky-note"
+        >
           {text}
         </div>
       </div>
