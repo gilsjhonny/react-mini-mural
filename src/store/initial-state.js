@@ -1,7 +1,22 @@
-import uniqueId from "lodash/uniqueId";
+// const notes = {
+//   "1": {
+//     id: "1",
+//     text: "Some Text",
+//     width: "100px",
+//     height: "100px",
+//     color: "mistyrose",
+//     x: "100",
+//     y: "100"
+//   }
+// };
 
-const notes = [];
+// const selected_notes = {
+//   "1": { note_id: 1 }
+// };
 
 export default {
-  notes
+  notes: {},
+  mural: {
+    selected_notes: {}
+  }
 };

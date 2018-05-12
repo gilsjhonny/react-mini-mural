@@ -1,2 +1,8 @@
+// Notes Actions
 export const ADD_NEW_NOTE = "ADD_NEW_NOTE";
 export const REMOVE_NOTE = "REMOVE_NOTE";
+
+// Mural Actions
+export const ADD_SELECTED_NOTE = "ADD_SELECTED_NOTE";
+export const REMOVE_SELECTED_NOTE = "REMOVE_SELECTED_NOTE";
+export const REMOVE_ALL_SELECTED_NOTES = "REMOVE_ALL_SELECTED_NOTES";
