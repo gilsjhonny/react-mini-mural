@@ -17,6 +17,7 @@
 export default {
   notes: {},
   mural: {
-    selected_notes: {}
+    selected_notes: {},
+    multipleSelection: false
   }
 };
