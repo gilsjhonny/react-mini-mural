@@ -1,5 +1,6 @@
 import React from "react";
 import StickyNote from "../StickyNote";
+import { uniqueId } from "lodash";
 import "./styles.css";
 
 class Mural extends React.Component {
@@ -10,8 +11,16 @@ class Mural extends React.Component {
 
   componentDidMount() {
     this.mural.current.addEventListener("dblclick", this.handleDoubleClick);
-    console.log(this.mural.current);
+    this.mural.current.addEventListener("click", this.handleClick);
   }
+
+  handleClick = e => {
+    console.log("Mural Clicked");
+    if (e.target.dataset.type !== "sticky-note") {
+      this.props.removeAllSelectedNotes();
+      console.log("Remove All");
+    }
+  };
 
   handleDoubleClick = e => {
     console.log(e);
@@ -24,7 +33,8 @@ class Mural extends React.Component {
       width: "100px",
       height: "100px",
       x: x,
-      y: y
+      y: y,
+      id: uniqueId()
     };
 
     this.props.addNewNote(noteToAdd);
@@ -32,17 +42,26 @@ class Mural extends React.Component {
   };
 
   render() {
-    const { notes } = this.props;
-    const StickyNotes = notes.map(({ text, color, width, height, x, y }) => (
-      <StickyNote
-        text={text}
-        color={color}
-        width={width}
-        height={height}
-        x={x}
-        y={y}
-      />
-    ));
+    const { notes, selectedNotes } = this.props;
+    const StickyNotes = Object.values(notes).map(
+      ({ id, text, color, width, height, x, y }) => {
+        const selected = selectedNotes.hasOwnProperty(id);
+        debugger;
+
+        return (
+          <StickyNote
+            id={id}
+            text={text}
+            color={color}
+            width={width}
+            height={height}
+            x={x}
+            y={y}
+            selected={selected}
+          />
+        );
+      }
+    );
 
     return (
       <div className="Mural" ref={this.mural}>
