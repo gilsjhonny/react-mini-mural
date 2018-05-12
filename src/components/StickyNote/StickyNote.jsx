@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import "./styles.css";
 class StickyNote extends React.Component {
   static propTypes = {
@@ -7,7 +8,8 @@ class StickyNote extends React.Component {
     height: PropTypes.number.string,
     width: PropTypes.number.string,
     x: PropTypes.number.string,
-    y: PropTypes.number.string
+    y: PropTypes.number.string,
+    selected: PropTypes.bool
   };
 
   static defaultProps = {
@@ -16,22 +18,28 @@ class StickyNote extends React.Component {
     height: "100px",
     width: "100px",
     x: "0",
-    y: "0"
+    y: "0",
+    selected: false
   };
 
   render() {
-    const { text, color, height, width, x, y } = this.props;
+    const { text, color, height, width, x, y, selected } = this.props;
+    const StickyNoteClassnames = classnames("StickyNote", {
+      selected: selected
+    });
+
     return (
       <div
-        className="StickyNote"
+        className={StickyNoteClassnames}
         style={{
           width,
           height,
-          background: color,
           transform: `translate(${x}px,${y}px)`
         }}
       >
-        {text}
+        <div className="container" style={{ background: color }}>
+          {text}
+        </div>
       </div>
     );
   }

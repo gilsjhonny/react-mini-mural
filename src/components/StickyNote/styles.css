@@ -1,8 +1,19 @@
 .StickyNote {
+  position: absolute;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   border-radius: 5px;
   font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.selected {
+  border: 2px solid #9dc8ff;
 }
