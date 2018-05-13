@@ -19,6 +19,7 @@
 
 .selected {
   border: 2px solid #9dc8ff;
+  border-radius: 5px;
 }
 
 .edit-mode {
