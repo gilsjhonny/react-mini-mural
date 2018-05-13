@@ -26,7 +26,7 @@ class ClipboardManager extends React.Component {
       return notes[id];
     });
 
-    const notesRepositioned = translateNotes(notesToClone, 100);
+    const notesRepositioned = translateNotes(notesToClone);
 
     debugger;
 

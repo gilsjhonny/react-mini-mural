@@ -1,10 +1,14 @@
-const translateNotes = (notes, pixelsToTranslate) => {
+const translateNotes = (notes, pixelsToTranslate = 0) => {
   return notes.map(note => {
-    return {
-      ...note,
-      x: note.x + pixelsToTranslate,
-      y: note.y + pixelsToTranslate
-    };
+    const x =
+      parseInt(note.x, 10) +
+      (parseInt(pixelsToTranslate, 10) || parseInt(note.width, 10));
+
+    const y =
+      parseInt(note.y, 10) +
+      (parseInt(pixelsToTranslate, 10) || parseInt(note.height, 10));
+
+    return { ...note, x, y };
   });
 };
 
