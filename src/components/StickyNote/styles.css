@@ -13,10 +13,30 @@
   height: 100%;
   width: 100%;
   position: relative;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 .selected {
   border: 2px solid #9dc8ff;
+}
+
+.edit-mode {
+  border: 2px solid #d9ff9d;
+}
+
+.edit-area {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  word-break: break-all;
+  font-size: 0.8rem;
+  color: #616161;
+}
+
+.edit-area:focus {
+  outline: none;
 }
 
 .delete-icon {

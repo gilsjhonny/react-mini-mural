@@ -17,16 +17,17 @@ class Mural extends React.Component {
   }
 
   handleClick = e => {
-    if (e.target.dataset.type !== "sticky-note") {
+    if (e.target.isEqualNode(this.mural.current)) {
       this.props.removeAllSelectedNotes();
     }
   };
 
   handleDoubleClick = e => {
-    console.log(e);
-    const { x, y } = e;
-    console.log(x, y);
+    if (!e.target.isEqualNode(this.mural.current)) {
+      return;
+    }
 
+    const { x, y } = e;
     const noteToAdd = {
       text: "Some Note",
       color: "mistyrose",
@@ -73,7 +74,7 @@ class Mural extends React.Component {
     );
 
     return (
-      <div className="Mural" ref={this.mural} tabIndex="-1">
+      <div id="Mural" className="Mural" ref={this.mural} tabIndex="-1">
         {StickyNotes}
         <ClipboardManager />
       </div>

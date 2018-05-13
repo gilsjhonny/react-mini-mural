@@ -26,17 +26,34 @@ class StickyNote extends React.Component {
 
   constructor(props) {
     super(props);
-    this.note = React.createRef();
+    this.textarea = React.createRef();
+    this.state = { editMode: false };
+  }
+
+  componentDidMount() {
+    this.textarea.current.addEventListener("click", this.handleClick);
+    this.textarea.current.addEventListener("dblclick", this.handleDoubleClick);
+    this.textarea.current.addEventListener("input", this.handleInput);
   }
 
   handleClick = e => {
-    const id = e.target.id;
+    const {
+      id,
+      setSelectedNote,
+      pushSelectedNote,
+      multipleSelection
+    } = this.props;
 
-    if (this.props.multipleSelection) {
-      this.props.pushSelectedNote(id);
+    if (multipleSelection) {
+      pushSelectedNote(id);
     } else {
-      this.props.setSelectedNote(id);
+      setSelectedNote(id);
     }
+  };
+
+  handleDoubleClick = () => {
+    this.setState({ editMode: true });
+    this.textarea.current.focus();
   };
 
   handleDelete = () => {
@@ -45,10 +62,21 @@ class StickyNote extends React.Component {
     removeNote(id);
   };
 
+  handleOnBlur = () => {
+    console.log("On Blur");
+    this.setState({ editMode: false });
+  };
+
+  handleInput = () => {
+    console.log("Inputting");
+  };
+
   render() {
+    const { editMode } = this.state;
     const { id, text, color, height, width, x, y, selected } = this.props;
     const StickyNoteClassnames = classnames("StickyNote", {
-      selected: selected
+      selected: selected,
+      "edit-mode": editMode
     });
 
     return (
@@ -59,16 +87,22 @@ class StickyNote extends React.Component {
           height,
           transform: `translate(${x}px,${y}px)`
         }}
-        onClick={this.handleClick}
       >
         <div
           className="container"
           style={{ background: color }}
-          ref={this.note}
           id={id}
           data-type="sticky-note"
         >
-          {text}
+          <p
+            className="edit-area"
+            contentEditable={editMode}
+            onBlur={this.handleOnBlur}
+            ref={this.textarea}
+          >
+            {text}
+          </p>
+
           {selected && <DeleteIcon onDelete={this.handleDelete} />}
         </div>
       </div>
