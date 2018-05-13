@@ -80,6 +80,7 @@ class StickyNote extends React.Component {
       "edit-mode": editMode
     });
     const textColor = Color(color).darken(0.2);
+    const boxShadowColor = Color(color).darken(0.1);
 
     return (
       <div
@@ -93,7 +94,10 @@ class StickyNote extends React.Component {
       >
         <div
           className="container"
-          style={{ background: color }}
+          style={{
+            background: color,
+            boxShadow: `0px 0px 2px ${boxShadowColor}`
+          }}
           id={id}
           data-type="sticky-note"
         >
