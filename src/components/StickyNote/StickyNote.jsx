@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./styles.css";
+import DeleteIcon from "./DeleteIcon";
 class StickyNote extends React.Component {
   static propTypes = {
     color: PropTypes.number.string,
@@ -28,10 +29,6 @@ class StickyNote extends React.Component {
     this.note = React.createRef();
   }
 
-  componentDidMount() {
-    this.note.current.addEventListener("click", this.handleClick);
-  }
-
   handleClick = e => {
     const id = e.target.id;
 
@@ -40,6 +37,12 @@ class StickyNote extends React.Component {
     } else {
       this.props.setSelectedNote(id);
     }
+  };
+
+  handleDelete = () => {
+    const { id, removeNote } = this.props;
+    console.log("delete");
+    removeNote(id);
   };
 
   render() {
@@ -56,6 +59,7 @@ class StickyNote extends React.Component {
           height,
           transform: `translate(${x}px,${y}px)`
         }}
+        onClick={this.handleClick}
       >
         <div
           className="container"
@@ -65,6 +69,7 @@ class StickyNote extends React.Component {
           data-type="sticky-note"
         >
           {text}
+          {selected && <DeleteIcon onDelete={this.handleDelete} />}
         </div>
       </div>
     );
