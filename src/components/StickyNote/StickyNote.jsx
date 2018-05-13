@@ -87,7 +87,8 @@ class StickyNote extends React.Component {
         style={{
           width,
           height,
-          transform: `translate(${x}px,${y}px)`
+          transform: `translate(${x}px,${y}px)`,
+          zIndex: id
         }}
       >
         <div
