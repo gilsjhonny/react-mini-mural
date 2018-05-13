@@ -4,6 +4,7 @@ import {
   clearClipboard
 } from "../../actions/clipboard-actions";
 import ClipboardManager from "./ClipboardManager";
+import { addNewNote } from "../../actions/notes-actions";
 
 const mapStateToProps = state => {
   return {
@@ -20,6 +21,9 @@ const mapDispatchToProps = dispatch => {
     },
     clearClipboard: () => {
       dispatch(clearClipboard());
+    },
+    addNewNote: note => {
+      dispatch(addNewNote(note));
     }
   };
 };

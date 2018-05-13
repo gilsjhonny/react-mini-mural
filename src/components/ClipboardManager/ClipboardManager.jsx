@@ -1,4 +1,5 @@
 import React from "react";
+import { translateNotes } from "../../utils";
 import "./styles.css";
 
 class ClipboardManager extends React.Component {
@@ -18,7 +19,20 @@ class ClipboardManager extends React.Component {
   };
 
   handlePaste = e => {
-    const { clearClipboard } = this.props;
+    const { clearClipboard, clipboard, notes, addNewNote } = this.props;
+
+    const notesToClone = Object.values(clipboard).map(note => {
+      const id = note["note_id"];
+      return notes[id];
+    });
+
+    const notesRepositioned = translateNotes(notesToClone, 100);
+
+    debugger;
+
+    notesRepositioned.forEach(note => {
+      addNewNote(note);
+    });
     clearClipboard();
   };
 
