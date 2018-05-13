@@ -106,7 +106,7 @@ class StickyNote extends React.Component {
             contentEditable={editMode}
             onBlur={this.handleOnBlur}
             ref={this.textarea}
-            style={{ color: textColor }}
+            style={{ color: textColor, userSelect: editMode ? "text" : "none" }}
           >
             {text}
           </p>
