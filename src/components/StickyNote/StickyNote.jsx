@@ -68,9 +68,17 @@ class StickyNote extends React.Component {
     const updatedText = e.target.textContent;
 
     if (text !== updatedText) {
-      const { id, color, height, width, x, y } = this.props;
-      const updatedNote = { id, text: updatedText, color, height, width, x, y };
-      debugger;
+      const { id, color, height, width, x, y, selected } = this.props;
+      const updatedNote = {
+        id,
+        text: updatedText,
+        color,
+        height,
+        width,
+        x,
+        y,
+        selected
+      };
       this.props.updateNote(updatedNote);
     }
 
@@ -105,7 +113,8 @@ class StickyNote extends React.Component {
           className="container"
           style={{
             background: color,
-            boxShadow: `0px 0px 2px ${boxShadowColor}`
+            boxShadow: `0px 0px 2px ${boxShadowColor}`,
+            padding: selected ? "6px" : "8px"
           }}
           id={id}
           data-type="sticky-note"
