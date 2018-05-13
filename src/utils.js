@@ -1,3 +1,7 @@
+const pixelsToInt = pixels => {
+  return parseInt(pixels.replace("px", ""), 10);
+};
+
 const translateNotes = (notes, pixelsToTranslate = 0) => {
   return notes.map(note => {
     const x =
@@ -12,4 +16,4 @@ const translateNotes = (notes, pixelsToTranslate = 0) => {
   });
 };
 
-export { translateNotes };
+export { translateNotes, pixelsToInt };

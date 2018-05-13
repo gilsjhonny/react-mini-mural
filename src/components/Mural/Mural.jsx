@@ -2,6 +2,7 @@ import React from "react";
 import StickyNote from "../StickyNote";
 import "./styles.css";
 import ClipboardManager from "../ClipboardManager";
+import { pixelsToInt } from "../../utils";
 
 class Mural extends React.Component {
   constructor(props) {
@@ -28,13 +29,16 @@ class Mural extends React.Component {
     }
 
     const { x, y } = e;
+    const width = "140px";
+    const height = "140px";
+
     const noteToAdd = {
       text: "Some Note",
       color: "#ffe4e1",
-      width: "140px",
-      height: "140px",
-      x: x,
-      y: y
+      width,
+      height,
+      x: x - pixelsToInt(width) / 2,
+      y: y - pixelsToInt(height) / 2
     };
 
     this.props.addNewNote(noteToAdd);
