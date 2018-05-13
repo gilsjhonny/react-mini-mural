@@ -1,10 +1,10 @@
-// const notes = {
+// const initialNotes = {
 //   "1": {
 //     id: "1",
-//     text: "Some Text",
-//     width: "100px",
-//     height: "100px",
-//     color: "mistyrose",
+//     text: "Double click to add Sticky Notes 😀",
+//     width: "140px",
+//     height: "140px",
+//     color: "rgb(242, 214, 255)",
 //     x: "100",
 //     y: "100"
 //   }
