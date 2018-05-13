@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
+import Color from "color";
 import "./styles.css";
 import DeleteIcon from "./DeleteIcon";
 class StickyNote extends React.Component {
@@ -78,6 +79,7 @@ class StickyNote extends React.Component {
       selected: selected,
       "edit-mode": editMode
     });
+    const textColor = Color(color).darken(0.2);
 
     return (
       <div
@@ -99,6 +101,7 @@ class StickyNote extends React.Component {
             contentEditable={editMode}
             onBlur={this.handleOnBlur}
             ref={this.textarea}
+            style={{ color: textColor }}
           >
             {text}
           </p>
