@@ -2,7 +2,11 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Mural from "./Mural";
 import { addNewNote, removeNote } from "../../actions/notes-actions";
-import { removeAllSelectedNotes } from "../../actions/mural-actions";
+import {
+  removeAllSelectedNotes,
+  enableMultipleSelection,
+  disableMultipleSelection
+} from "../../actions/mural-actions";
 
 const mapStateToProps = ({ notes, mural }) => ({
   notes: notes,
@@ -14,7 +18,9 @@ const mapDispatchToProps = dispatch => {
     {
       addNewNote,
       removeNote,
-      removeAllSelectedNotes
+      removeAllSelectedNotes,
+      enableMultipleSelection,
+      disableMultipleSelection
     },
     dispatch
   );

@@ -12,13 +12,13 @@ class Mural extends React.Component {
   componentDidMount() {
     this.mural.current.addEventListener("dblclick", this.handleDoubleClick);
     this.mural.current.addEventListener("click", this.handleClick);
+    this.mural.current.addEventListener("keydown", this.handleKeyDown);
+    this.mural.current.addEventListener("keyup", this.handleKeyUp);
   }
 
   handleClick = e => {
-    console.log("Mural Clicked");
     if (e.target.dataset.type !== "sticky-note") {
       this.props.removeAllSelectedNotes();
-      console.log("Remove All");
     }
   };
 
@@ -41,12 +41,23 @@ class Mural extends React.Component {
     console.log("Double Clicked");
   };
 
+  handleKeyDown = e => {
+    if (e.key === "Shift") {
+      this.props.enableMultipleSelection();
+    }
+  };
+
+  handleKeyUp = e => {
+    if (e.key === "Shift") {
+      this.props.disableMultipleSelection();
+    }
+  };
+
   render() {
     const { notes, selectedNotes } = this.props;
     const StickyNotes = Object.values(notes).map(
       ({ id, text, color, width, height, x, y }) => {
         const selected = selectedNotes.hasOwnProperty(id);
-        debugger;
 
         return (
           <StickyNote
@@ -64,7 +75,7 @@ class Mural extends React.Component {
     );
 
     return (
-      <div className="Mural" ref={this.mural}>
+      <div className="Mural" ref={this.mural} tabindex="-1">
         {StickyNotes}
       </div>
     );
