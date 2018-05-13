@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import Color from "color";
+import FontAwesomeButton from "../FontAwesomeButton";
 import "./styles.css";
-import DeleteIcon from "./DeleteIcon";
 class StickyNote extends React.Component {
   static propTypes = {
     color: PropTypes.number.string,
@@ -106,7 +106,12 @@ class StickyNote extends React.Component {
             {text}
           </p>
 
-          {selected && <DeleteIcon onDelete={this.handleDelete} />}
+          {selected && (
+            <FontAwesomeButton
+              faClass={"fa fa-trash-o"}
+              handleOnClick={this.handleDelete}
+            />
+          )}
         </div>
       </div>
     );
