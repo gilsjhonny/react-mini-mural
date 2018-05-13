@@ -33,8 +33,13 @@ class StickyNote extends React.Component {
   }
 
   handleClick = e => {
-    this.props.addSelectedNote(e.target.id);
-    // this.setState(prevState => ({ selected: !prevState.selected }));
+    const id = e.target.id;
+
+    if (this.props.multipleSelection) {
+      this.props.pushSelectedNote(id);
+    } else {
+      this.props.setSelectedNote(id);
+    }
   };
 
   render() {
