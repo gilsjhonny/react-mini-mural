@@ -89,7 +89,7 @@ class StickyNote extends React.Component {
           width,
           height,
           transform: `translate(${x}px,${y}px)`,
-          zIndex: id
+          zIndex: selected ? "999999" : id
         }}
       >
         <div
