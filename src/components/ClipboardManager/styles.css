@@ -1,0 +1,35 @@
+.ClipboardManager {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  font-family: sans-serif;
+}
+
+.ClipboardManager:focus {
+  outline: none;
+}
+
+.clipboard-icon {
+  background: #bacfd2;
+  border-radius: 50%;
+  padding: 1rem;
+  margin-left: 10px;
+  color: #477b7b;
+  box-shadow: 0 0 27px #d2d2d2;
+  position: relative;
+}
+
+.clipboard-counter {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  height: 23px;
+  width: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #7bbdc3;
+  bottom: 0px;
+  right: -13px;
+  font-size: 0.8rem;
+}

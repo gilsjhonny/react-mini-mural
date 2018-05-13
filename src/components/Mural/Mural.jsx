@@ -2,6 +2,7 @@ import React from "react";
 import StickyNote from "../StickyNote";
 import { uniqueId } from "lodash";
 import "./styles.css";
+import ClipboardManager from "../ClipboardManager";
 
 class Mural extends React.Component {
   constructor(props) {
@@ -75,8 +76,9 @@ class Mural extends React.Component {
     );
 
     return (
-      <div className="Mural" ref={this.mural} tabindex="-1">
+      <div className="Mural" ref={this.mural} tabIndex="-1">
         {StickyNotes}
+        <ClipboardManager />
       </div>
     );
   }

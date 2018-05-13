@@ -19,5 +19,6 @@ export default {
   mural: {
     selected_notes: {},
     multipleSelection: false
-  }
+  },
+  clipboard: {}
 };
