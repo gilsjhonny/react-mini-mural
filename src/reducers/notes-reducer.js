@@ -1,5 +1,5 @@
 import { uniqueId } from "lodash";
-import { ADD_NEW_NOTE, REMOVE_NOTE } from "../actionTypes";
+import { ADD_NEW_NOTE, REMOVE_NOTE, UPDATE_NOTE } from "../actionTypes";
 
 export default function(state = {}, action) {
   switch (action.type) {
@@ -9,6 +9,10 @@ export default function(state = {}, action) {
       let newNotes = { ...state };
       newNotes[id] = { id, text, color, width, height, x, y };
       return newNotes;
+    case UPDATE_NOTE:
+      let notesToUpdate = { ...state };
+      notesToUpdate[action.note.id] = { ...action.note };
+      return notesToUpdate;
     case REMOVE_NOTE:
       let notes = { ...state };
       delete notes[action.id];

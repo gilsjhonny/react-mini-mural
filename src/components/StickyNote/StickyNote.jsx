@@ -63,8 +63,17 @@ class StickyNote extends React.Component {
     removeNote(id);
   };
 
-  handleOnBlur = () => {
-    console.log("On Blur");
+  handleOnBlur = e => {
+    const text = this.props.text;
+    const updatedText = e.target.textContent;
+
+    if (text !== updatedText) {
+      const { id, color, height, width, x, y } = this.props;
+      const updatedNote = { id, text: updatedText, color, height, width, x, y };
+      debugger;
+      this.props.updateNote(updatedNote);
+    }
+
     this.setState({ editMode: false });
   };
 
