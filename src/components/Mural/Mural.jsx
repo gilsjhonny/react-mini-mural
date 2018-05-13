@@ -33,7 +33,7 @@ class Mural extends React.Component {
     const height = "140px";
 
     const noteToAdd = {
-      text: "Some Note",
+      text: "",
       color: "#ffe4e1",
       width,
       height,
