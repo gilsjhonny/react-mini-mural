@@ -1,6 +1,5 @@
 import React from "react";
 import StickyNote from "../StickyNote";
-import { uniqueId } from "lodash";
 import "./styles.css";
 import ClipboardManager from "../ClipboardManager";
 
@@ -34,12 +33,10 @@ class Mural extends React.Component {
       width: "100px",
       height: "100px",
       x: x,
-      y: y,
-      id: uniqueId()
+      y: y
     };
 
     this.props.addNewNote(noteToAdd);
-    console.log("Double Clicked");
   };
 
   handleKeyDown = e => {
