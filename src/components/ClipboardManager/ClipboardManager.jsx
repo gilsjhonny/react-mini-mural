@@ -1,10 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { translateNotes } from "../../utils";
 import "./styles.css";
 
 class ClipboardManager extends React.Component {
+  static propTypes = {
+    clipboard: PropTypes.object,
+    notes: PropTypes.object,
+    selectedNotes: PropTypes.object,
+    addToClipboard: PropTypes.func,
+    clearClipboard: PropTypes.func,
+    addNote: PropTypes.func
+  };
+
   componentDidMount() {
-    this.clipboardManager.current.addEventListener("copy", this.handleCopy);
+    window.addEventListener("copy", this.handleCopy);
     window.addEventListener("paste", this.handlePaste);
   }
 
