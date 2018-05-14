@@ -3,13 +3,8 @@ import { translateNotes } from "../../utils";
 import "./styles.css";
 
 class ClipboardManager extends React.Component {
-  constructor(props) {
-    super(props);
-    this.clipboardManager = React.createRef();
-  }
-
   componentDidMount() {
-    window.addEventListener("copy", this.handleCopy);
+    this.clipboardManager.current.addEventListener("copy", this.handleCopy);
     window.addEventListener("paste", this.handlePaste);
   }
 
@@ -42,7 +37,7 @@ class ClipboardManager extends React.Component {
     return (
       <div>
         {!!clipboardCount ? (
-          <div className="ClipboardManager" ref={this.clipboardManager}>
+          <div className="ClipboardManager">
             <div className="clipboard-icon">
               <i className="fa fa-clipboard" aria-hidden="true" />
               <span className="clipboard-counter">{clipboardCount}</span>
