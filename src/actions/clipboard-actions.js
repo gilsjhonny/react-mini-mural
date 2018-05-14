@@ -1,12 +1,12 @@
-import { ADD_TO_CLIPBOARD, CLEAR_CLIPBOARD } from "../actionTypes";
+import { CLIPBOARD_ADD, CLIPBOARD_CLEAR } from "../actionTypes";
 
 export const addToClipboard = selectedNotes => {
   return {
-    type: ADD_TO_CLIPBOARD,
+    type: CLIPBOARD_ADD,
     selectedNotes
   };
 };
 
 export const clearClipboard = () => {
-  return { type: CLEAR_CLIPBOARD };
+  return { type: CLIPBOARD_CLEAR };
 };

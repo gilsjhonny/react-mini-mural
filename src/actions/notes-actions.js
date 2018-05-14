@@ -1,18 +1,18 @@
 import uniqueId from "lodash/uniqueId";
-import { ADD_NEW_NOTE, REMOVE_NOTE, UPDATE_NOTE } from "../actionTypes";
+import { NOTE_ADD, NOTE_UPDATE, NOTE_DELETE } from "../actionTypes";
 
 export const addNewNote = note => ({
-  type: ADD_NEW_NOTE,
+  type: NOTE_ADD,
   id: uniqueId(),
   note
 });
 
 export const updateNote = note => ({
-  type: UPDATE_NOTE,
+  type: NOTE_UPDATE,
   note
 });
 
 export const removeNote = id => ({
-  type: REMOVE_NOTE,
+  type: NOTE_DELETE,
   id
 });

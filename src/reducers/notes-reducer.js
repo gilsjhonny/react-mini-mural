@@ -1,19 +1,19 @@
 import { uniqueId } from "lodash";
-import { ADD_NEW_NOTE, REMOVE_NOTE, UPDATE_NOTE } from "../actionTypes";
+import { NOTE_ADD, NOTE_UPDATE, NOTE_DELETE } from "../actionTypes";
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case ADD_NEW_NOTE:
+    case NOTE_ADD:
       const { text, color, width, height, x, y } = action.note;
       const id = uniqueId();
       let newNotes = { ...state };
       newNotes[id] = { id, text, color, width, height, x, y };
       return newNotes;
-    case UPDATE_NOTE:
+    case NOTE_UPDATE:
       let notesToUpdate = { ...state };
       notesToUpdate[action.note.id] = { ...action.note };
       return notesToUpdate;
-    case REMOVE_NOTE:
+    case NOTE_DELETE:
       let notes = { ...state };
       delete notes[action.id];
       return notes;

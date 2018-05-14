@@ -1,10 +1,10 @@
-import { ADD_TO_CLIPBOARD, CLEAR_CLIPBOARD } from "../actionTypes";
+import { CLIPBOARD_ADD, CLIPBOARD_CLEAR } from "../actionTypes";
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case ADD_TO_CLIPBOARD:
+    case CLIPBOARD_ADD:
       return { ...action.selectedNotes };
-    case CLEAR_CLIPBOARD:
+    case CLIPBOARD_CLEAR:
       return {};
     default:
       return state;
