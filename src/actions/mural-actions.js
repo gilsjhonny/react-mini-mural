@@ -16,7 +16,7 @@ export const pushSelectedNote = id => ({
   id
 });
 
-export const removeAllSelectedNotes = () => ({
+export const clearSelectedNotes = () => ({
   type: SELECTED_NOTES_CLEAR
 });
 

@@ -19,7 +19,7 @@ class Mural extends React.Component {
 
   handleClick = e => {
     if (e.target.isEqualNode(this.mural.current)) {
-      this.props.removeAllSelectedNotes();
+      this.props.clearSelectedNotes();
     }
   };
 
@@ -41,7 +41,7 @@ class Mural extends React.Component {
       y: y - pixelsToInt(height) / 2
     };
 
-    this.props.addNewNote(noteToAdd);
+    this.props.addNote(noteToAdd);
   };
 
   handleKeyDown = e => {

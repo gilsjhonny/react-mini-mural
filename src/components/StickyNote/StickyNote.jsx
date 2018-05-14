@@ -58,9 +58,8 @@ class StickyNote extends React.Component {
   };
 
   handleDelete = () => {
-    const { id, removeNote } = this.props;
-    console.log("delete");
-    removeNote(id);
+    const { id, deleteNote } = this.props;
+    deleteNote(id);
   };
 
   handleOnBlur = e => {

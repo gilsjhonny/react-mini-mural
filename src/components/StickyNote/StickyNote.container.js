@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import StickyNote from "./StickyNote";
 import { setSelectedNote, pushSelectedNote } from "../../actions/mural-actions";
-import { removeNote, updateNote } from "../../actions/notes-actions";
+import { deleteNote, updateNote } from "../../actions/notes-actions";
 
 const mapStateToProps = state => {
   return {
@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => {
       setSelectedNote,
       pushSelectedNote,
       updateNote,
-      removeNote
+      deleteNote
     },
     dispatch
   );

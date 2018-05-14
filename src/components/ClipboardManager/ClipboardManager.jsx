@@ -19,7 +19,7 @@ class ClipboardManager extends React.Component {
   };
 
   handlePaste = e => {
-    const { clearClipboard, clipboard, notes, addNewNote } = this.props;
+    const { clearClipboard, clipboard, notes, addNote } = this.props;
 
     const notesToClone = Object.values(clipboard).map(note => {
       const id = note["note_id"];
@@ -29,7 +29,7 @@ class ClipboardManager extends React.Component {
     const notesRepositioned = translateNotes(notesToClone);
 
     notesRepositioned.forEach(note => {
-      addNewNote(note);
+      addNote(note);
     });
     clearClipboard();
   };
