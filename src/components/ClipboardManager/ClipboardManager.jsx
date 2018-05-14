@@ -13,12 +13,12 @@ class ClipboardManager extends React.Component {
     window.addEventListener("paste", this.handlePaste);
   }
 
-  handleCopy = e => {
+  handleCopy = () => {
     const { selectedNotes, addToClipboard } = this.props;
     if (Object.keys(selectedNotes).length) addToClipboard(selectedNotes);
   };
 
-  handlePaste = e => {
+  handlePaste = () => {
     const { clearClipboard, clipboard, notes, addNote } = this.props;
 
     const notesToClone = Object.values(clipboard).map(note => {
@@ -31,6 +31,7 @@ class ClipboardManager extends React.Component {
     notesRepositioned.forEach(note => {
       addNote(note);
     });
+
     clearClipboard();
   };
 
@@ -41,11 +42,7 @@ class ClipboardManager extends React.Component {
     return (
       <div>
         {!!clipboardCount ? (
-          <div
-            tabIndex="0"
-            className="ClipboardManager"
-            ref={this.clipboardManager}
-          >
+          <div className="ClipboardManager" ref={this.clipboardManager}>
             <div className="clipboard-icon">
               <i className="fa fa-clipboard" aria-hidden="true" />
               <span className="clipboard-counter">{clipboardCount}</span>
