@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import StickyNote from "../StickyNote";
-import "./styles.css";
 import ClipboardManager from "../ClipboardManager";
 import { pixelsToInt } from "../../utils";
+import "./styles.css";
 
 class Mural extends React.Component {
   constructor(props) {
@@ -11,8 +12,8 @@ class Mural extends React.Component {
   }
 
   componentDidMount() {
-    this.mural.current.addEventListener("dblclick", this.handleDoubleClick);
     this.mural.current.addEventListener("click", this.handleClick);
+    this.mural.current.addEventListener("dblclick", this.handleDoubleClick);
     this.mural.current.addEventListener("keydown", this.handleKeyDown);
     this.mural.current.addEventListener("keyup", this.handleKeyUp);
   }
@@ -85,5 +86,14 @@ class Mural extends React.Component {
     );
   }
 }
+
+Mural.propTypes = {
+  notes: PropTypes.object,
+  selectedNotes: PropTypes.object,
+  addNote: PropTypes.func,
+  enableMultipleSelection: PropTypes.func,
+  disableMultipleSelection: PropTypes.func,
+  clearSelectedNotes: PropTypes.func
+};
 
 export default Mural;
