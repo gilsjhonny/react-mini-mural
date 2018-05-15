@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import Mural from "./Mural";
-import { addNote, deleteNote } from "../../actions/notes-actions";
+import { addNote } from "../../actions/notes-actions";
 import {
   clearSelectedNotes,
   enableMultipleSelection,
@@ -14,16 +13,20 @@ const mapStateToProps = ({ notes, mural }) => ({
 });
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      addNote,
-      deleteNote,
-      clearSelectedNotes,
-      enableMultipleSelection,
-      disableMultipleSelection
+  return {
+    addNote: note => {
+      dispatch(addNote(note));
     },
-    dispatch
-  );
+    clearSelectedNotes: () => {
+      dispatch(clearSelectedNotes());
+    },
+    enableMultipleSelection: () => {
+      dispatch(enableMultipleSelection());
+    },
+    disableMultipleSelection: () => {
+      dispatch(disableMultipleSelection());
+    }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Mural);
