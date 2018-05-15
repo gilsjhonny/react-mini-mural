@@ -6,7 +6,3 @@
   cursor: pointer;
   box-sizing: border-box;
 }
-
-.activeBox {
-  border: 2px solid #afafaf;
-}
