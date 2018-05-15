@@ -1,20 +1,27 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { uniqueId } from "lodash";
 import ColorBox from "./ColorBox";
+import { COLOR_PICKER_DEFAULT } from "../../../constants";
 import "./styles.css";
 
 class ColorPicker extends React.Component {
+  static propTypes = {
+    setColor: PropTypes.func
+  };
+
   pickColor = color => {
     this.props.setColor(color);
   };
 
   render() {
     const { currentColor } = this.props;
-    const colors = ["#ffe4e1", "#e3cbed", "#c4e9ff", "#deffce"];
-    const colorBoxes = colors.map(color => (
+    const colorBoxes = COLOR_PICKER_DEFAULT.map(color => (
       <ColorBox
         color={color}
         onClick={this.pickColor}
         active={currentColor === color}
+        key={uniqueId()}
       />
     ));
 
