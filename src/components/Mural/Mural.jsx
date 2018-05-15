@@ -6,6 +6,7 @@ import StickyNote from "../StickyNote";
 import { NOTE_DEFAULT_HEIGHT, NOTE_DEFAULT_WIDTH } from "../../constants";
 import { pixelsToInt } from "../../utils";
 import "./styles.css";
+import Welcome from "../Welcome";
 
 class Mural extends React.Component {
   static propTypes = {
@@ -37,8 +38,10 @@ class Mural extends React.Component {
   };
 
   addNoteToMural = e => {
-    // Ignore in case you double clicked anything else
-    if (!e.target.isEqualNode(this.mural.current)) {
+    if (
+      !e.target.classList.contains("Welcome") &&
+      !e.target.isEqualNode(this.mural.current)
+    ) {
       return;
     }
 
@@ -95,6 +98,7 @@ class Mural extends React.Component {
 
     return (
       <div id="Mural" className="Mural" ref={this.mural} tabIndex="-1">
+        <Welcome />
         {StickyNotes}
         <Toolbar />
       </div>

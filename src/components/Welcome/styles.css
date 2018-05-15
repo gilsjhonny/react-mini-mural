@@ -1,0 +1,25 @@
+.Welcome {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructions {
+  color: #9e9e9e;
+  font-family: sans-serif;
+  user-select: none;
+}
+
+.key {
+  background: #eaeaea;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.logo {
+  height: 300px;
+  opacity: 0.4;
+}
