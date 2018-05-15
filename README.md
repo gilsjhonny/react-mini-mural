@@ -1,5 +1,5 @@
 <p align="center">
-    <img align="center" src="readme-header.png" alt="Markdownify" width="700">
+    <img align="center" src="images/readme-header.png" alt="React Mini Mural" width="700">
 </p>
 
 ---
@@ -31,7 +31,7 @@ $ yarn start
 ```
 
 <p align="center">
-    <img align="center" src="react-mini-mural.png" alt="Markdownify" width="700">
+    <img align="center" src="images/react-mini-mural.png" alt="Markdownify" width="700">
 </p>
 
 * Add Notes: Double Click
@@ -39,6 +39,10 @@ $ yarn start
 * Multiple Selection: <kbd>Shift</kbd> + Click
 * Copy Notes: <kbd>CTRL</kbd>+<kbd>C</kbd>
 * Paste Notes: <kbd>CTRL</kbd>+<kbd>V</kbd>
+
+<p align="center">
+    <img align="center" src="images/clipboard-manager.png" alt="Markdownify" width="700">
+</p>
 
 ## Running the tests
 
