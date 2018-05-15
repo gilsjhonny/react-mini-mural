@@ -1,5 +1,6 @@
 // Notes Actions
 export const NOTE_ADD = "NOTE_ADD";
+export const NOTE_COPY = "NOTE_COPY";
 export const NOTE_UPDATE = "NOTE_UPDATE";
 export const NOTE_DELETE = "NOTE_DELETE";
 

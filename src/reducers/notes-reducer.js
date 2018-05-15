@@ -1,20 +1,29 @@
-import { NOTE_ADD, NOTE_UPDATE, NOTE_DELETE } from "../actionTypes";
+import { NOTE_ADD, NOTE_COPY, NOTE_UPDATE, NOTE_DELETE } from "../actionTypes";
 
 export default function(state = {}, action) {
+  let newNotes;
+
   switch (action.type) {
     case NOTE_ADD:
-      const { id, text, color, width, height, x, y } = action.note;
-      let newNotes = { ...state };
-      newNotes[id] = { id, text, color, width, height, x, y };
+      newNotes = { ...state };
+      newNotes[action.note.id] = { ...action.note };
       return newNotes;
+
+    case NOTE_COPY:
+      newNotes = { ...state };
+      newNotes[action.newId] = { id: action.newId, ...action.note };
+      return newNotes;
+
     case NOTE_UPDATE:
-      let notesToUpdate = { ...state };
-      notesToUpdate[action.note.id] = { ...action.note };
-      return notesToUpdate;
+      newNotes = { ...state };
+      newNotes[action.note.id] = { ...action.note };
+      return newNotes;
+
     case NOTE_DELETE:
-      let notes = { ...state };
-      delete notes[action.id];
-      return notes;
+      newNotes = { ...state };
+      delete newNotes[action.id];
+      return newNotes;
+
     default:
       return state;
   }
