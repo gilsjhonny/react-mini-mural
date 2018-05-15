@@ -6,13 +6,16 @@ import FontAwesomeButton from "../FontAwesomeButton";
 import "./styles.css";
 class StickyNote extends React.Component {
   static propTypes = {
-    color: PropTypes.number.string,
-    height: PropTypes.number.string,
-    width: PropTypes.number.string,
-    x: PropTypes.number.string,
-    y: PropTypes.number.string,
+    color: PropTypes.string,
+    height: PropTypes.string,
+    width: PropTypes.string,
+    x: PropTypes.number,
+    y: PropTypes.number,
     selected: PropTypes.bool,
-    addSelectedNote: PropTypes.func
+    setSelectedNote: PropTypes.func,
+    pushSelectedNote: PropTypes.func,
+    updateNote: PropTypes.func,
+    deleteNote: PropTypes.func
   };
 
   static defaultProps = {
@@ -120,6 +123,7 @@ class StickyNote extends React.Component {
             onBlur={this.handleOnBlur}
             ref={this.textarea}
             style={{ color: textColor, userSelect: editMode ? "text" : "none" }}
+            suppressContentEditableWarning="true"
           >
             {text}
           </p>

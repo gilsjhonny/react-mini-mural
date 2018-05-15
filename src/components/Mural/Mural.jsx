@@ -88,6 +88,7 @@ class Mural extends React.Component {
             x={x}
             y={y}
             selected={selected}
+            key={id}
           />
         );
       }
