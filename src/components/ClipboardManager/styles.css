@@ -1,8 +1,5 @@
 .ClipboardManager {
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
-  font-family: sans-serif;
+  margin-top: auto;
 }
 
 .ClipboardManager:focus {
@@ -10,26 +7,27 @@
 }
 
 .clipboard-icon {
-  background: #bacfd2;
+  background: #ffffff;
   border-radius: 50%;
   padding: 1rem;
-  margin-left: 10px;
   color: #477b7b;
-  box-shadow: 0 0 27px #d2d2d2;
+  border: 1px solid #c3c3c3;
   position: relative;
 }
 
 .clipboard-counter {
-  position: absolute;
   background: white;
   border-radius: 50%;
   height: 23px;
   width: 23px;
+  display: -ms-flexbox;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid #7bbdc3;
-  bottom: 0px;
-  right: -13px;
+  position: absolute;
+  top: -13px;
+  right: -3px;
   font-size: 0.8rem;
+  font-family: sans-serif;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Toolbar from "../Toolbar";
 import StickyNote from "../StickyNote";
-import ClipboardManager from "../ClipboardManager";
+
 import { NOTE_DEFAULT_HEIGHT, NOTE_DEFAULT_WIDTH } from "../../constants";
 import { pixelsToInt } from "../../utils";
 import "./styles.css";
@@ -97,7 +97,6 @@ class Mural extends React.Component {
       <div id="Mural" className="Mural" ref={this.mural} tabIndex="-1">
         {StickyNotes}
         <Toolbar />
-        <ClipboardManager />
       </div>
     );
   }
