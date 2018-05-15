@@ -28,6 +28,16 @@ $ yarn install
 $ yarn start
 ```
 
+<p align="center">
+    <img align="center" src="react-mini-mural.png" alt="Markdownify" width="700">
+</p>
+
+* Add Notes: Double Click
+* Select Note: Click
+* Multiple Selection: <kbd>Shift</kbd> + Click
+* Copy Notes: <kbd>CTRL</kbd>+<kbd>C</kbd>
+* Paste Notes: <kbd>CTRL</kbd>+<kbd>V</kbd>
+
 ## Running the tests
 
 To run the tests of this project. From your command line:
