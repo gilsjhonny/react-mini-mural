@@ -38,10 +38,7 @@ class Mural extends React.Component {
   };
 
   addNoteToMural = e => {
-    if (
-      !e.target.classList.contains("Welcome") &&
-      !e.target.isEqualNode(this.mural.current)
-    ) {
+    if (e.target.classList.contains("sticky-note-content")) {
       return;
     }
 

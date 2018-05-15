@@ -22,4 +22,5 @@
 .logo {
   height: 300px;
   opacity: 0.4;
+  user-select: none;
 }

@@ -121,7 +121,7 @@ class StickyNote extends React.Component {
           data-type="sticky-note"
         >
           <p
-            className="edit-area"
+            className="sticky-note-content"
             contentEditable={editMode}
             onBlur={this.handleOnBlur}
             ref={this.textarea}
