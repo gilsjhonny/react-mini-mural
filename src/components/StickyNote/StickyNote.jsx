@@ -130,14 +130,13 @@ class StickyNote extends React.Component {
           >
             {text}
           </p>
-
-          {selected && (
-            <FontAwesomeButton
-              faClass={"fa fa-trash-o"}
-              handleOnClick={this.handleDelete}
-            />
-          )}
         </div>
+        {selected && (
+          <FontAwesomeButton
+            faClass={"fa fa-trash-o"}
+            handleOnClick={this.handleDelete}
+          />
+        )}
       </div>
     );
   }
