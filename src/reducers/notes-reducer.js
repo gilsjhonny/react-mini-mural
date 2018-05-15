@@ -11,7 +11,9 @@ export default function(state = {}, action) {
 
     case NOTE_COPY:
       newNotes = { ...state };
-      newNotes[action.newId] = { id: action.newId, ...action.note };
+      const { newId } = action;
+      newNotes[newId] = { ...action.note, id: newId };
+      debugger;
       return newNotes;
 
     case NOTE_UPDATE:
