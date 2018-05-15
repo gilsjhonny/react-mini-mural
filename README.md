@@ -6,6 +6,8 @@
 
 <h4 align="center">A simple mural with Sticky Notes. You can add, edit and delete Sticky Notes</h4>
 
+<p align="center">Made as a coding challenge for an interview.</p>
+
 ## Live Example
 
 You can test the application in the following link: <a href="https://react-mini-mural.netlify.com/" target="_blank">React Mini Mural</a>
