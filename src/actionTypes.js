@@ -11,6 +11,9 @@ export const SELECTED_NOTES_CLEAR = "SELECTED_NOTES_CLEAR";
 export const MULTIPLE_SELECTION_ENABLE = "MULTIPLE_SELECTION_ENABLE";
 export const MULTIPLE_SELECTION_DISABLE = "MULTIPLE_SELECTION_DISABLE";
 
-// Clipboard aActions
+// Toolbar Actions
+export const COLOR_SET = "COLOR_SET";
+
+// Clipboard Actions
 export const CLIPBOARD_ADD = "CLIPBOARD_ADD";
 export const CLIPBOARD_CLEAR = "CLIPBOARD_CLEAR";

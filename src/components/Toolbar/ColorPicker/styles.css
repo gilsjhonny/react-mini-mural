@@ -1,0 +1,8 @@
+.ColorPicker {
+  flex: 0 1 300px;
+  max-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

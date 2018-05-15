@@ -7,9 +7,10 @@ import {
   disableMultipleSelection
 } from "../../actions/mural-actions";
 
-const mapStateToProps = ({ notes, mural }) => ({
+const mapStateToProps = ({ notes, mural, toolbar }) => ({
   notes: notes,
-  selectedNotes: mural.selected_notes
+  selectedNotes: mural.selected_notes,
+  currentColor: toolbar["current_color"]
 });
 
 const mapDispatchToProps = dispatch => {

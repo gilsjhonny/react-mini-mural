@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Toolbar from "../Toolbar";
 import StickyNote from "../StickyNote";
 import ClipboardManager from "../ClipboardManager";
-import {
-  NOTE_DEFAULT_HEIGHT,
-  NOTE_DEFAULT_WIDTH,
-  NOTE_DEFAULT_COLOR
-} from "../../constants";
+import { NOTE_DEFAULT_HEIGHT, NOTE_DEFAULT_WIDTH } from "../../constants";
 import { pixelsToInt } from "../../utils";
 import "./styles.css";
 
@@ -14,6 +11,7 @@ class Mural extends React.Component {
   static propTypes = {
     notes: PropTypes.object,
     selectedNotes: PropTypes.object,
+    currentColor: PropTypes.string,
     addNote: PropTypes.func,
     enableMultipleSelection: PropTypes.func,
     disableMultipleSelection: PropTypes.func,
@@ -45,19 +43,20 @@ class Mural extends React.Component {
     }
 
     const { x, y } = e;
+    const { currentColor, addNote } = this.props;
     const width = NOTE_DEFAULT_HEIGHT;
     const height = NOTE_DEFAULT_WIDTH;
 
     const noteToAdd = {
       text: "",
-      color: NOTE_DEFAULT_COLOR,
+      color: currentColor,
       width,
       height,
       x: x - pixelsToInt(width) / 2,
       y: y - pixelsToInt(height) / 2
     };
 
-    this.props.addNote(noteToAdd);
+    addNote(noteToAdd);
   };
 
   handleKeyDown = e => {
@@ -97,6 +96,7 @@ class Mural extends React.Component {
     return (
       <div id="Mural" className="Mural" ref={this.mural} tabIndex="-1">
         {StickyNotes}
+        <Toolbar />
         <ClipboardManager />
       </div>
     );

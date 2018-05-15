@@ -94,7 +94,10 @@ class StickyNote extends React.Component {
       selected: selected,
       "edit-mode": editMode
     });
-    const textColor = Color(color).darken(0.2);
+
+    const textColor = Color(color)
+      .darken(0.4)
+      .desaturate(0.3);
     const boxShadowColor = Color(color).darken(0.1);
 
     return (
