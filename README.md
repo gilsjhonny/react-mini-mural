@@ -55,7 +55,7 @@ $ yarn test
 ## Notes
 
 * Only reducers have tests
-* First time dealing with eventlisteners and React and for some reason it's quite tricky.
+* First time dealing with eventlisteners mixed with React and for some reason it's quite tricky.
 * Only tested in Chrome
 
 ## Things I would have liked to Add
