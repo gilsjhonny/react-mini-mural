@@ -2,40 +2,55 @@ import React from "react";
 import PropTypes from "prop-types";
 import StickyNote from "../StickyNote";
 import ClipboardManager from "../ClipboardManager";
+import {
+  NOTE_DEFAULT_HEIGHT,
+  NOTE_DEFAULT_WIDTH,
+  NOTE_DEFAULT_COLOR
+} from "../../constants";
 import { pixelsToInt } from "../../utils";
 import "./styles.css";
 
 class Mural extends React.Component {
+  static propTypes = {
+    notes: PropTypes.object,
+    selectedNotes: PropTypes.object,
+    addNote: PropTypes.func,
+    enableMultipleSelection: PropTypes.func,
+    disableMultipleSelection: PropTypes.func,
+    clearSelectedNotes: PropTypes.func
+  };
+
   constructor(props) {
     super(props);
     this.mural = React.createRef();
   }
 
   componentDidMount() {
-    this.mural.current.addEventListener("click", this.handleClick);
-    this.mural.current.addEventListener("dblclick", this.handleDoubleClick);
+    this.mural.current.addEventListener("click", this.clearSelectedNotes);
+    this.mural.current.addEventListener("dblclick", this.addNoteToMural);
     this.mural.current.addEventListener("keydown", this.handleKeyDown);
     this.mural.current.addEventListener("keyup", this.handleKeyUp);
   }
 
-  handleClick = e => {
+  clearSelectedNotes = e => {
     if (e.target.isEqualNode(this.mural.current)) {
       this.props.clearSelectedNotes();
     }
   };
 
-  handleDoubleClick = e => {
+  addNoteToMural = e => {
+    // Ignore in case you double clicked anything else
     if (!e.target.isEqualNode(this.mural.current)) {
       return;
     }
 
     const { x, y } = e;
-    const width = "140px";
-    const height = "140px";
+    const width = NOTE_DEFAULT_HEIGHT;
+    const height = NOTE_DEFAULT_WIDTH;
 
     const noteToAdd = {
       text: "",
-      color: "#ffe4e1",
+      color: NOTE_DEFAULT_COLOR,
       width,
       height,
       x: x - pixelsToInt(width) / 2,
@@ -86,14 +101,5 @@ class Mural extends React.Component {
     );
   }
 }
-
-Mural.propTypes = {
-  notes: PropTypes.object,
-  selectedNotes: PropTypes.object,
-  addNote: PropTypes.func,
-  enableMultipleSelection: PropTypes.func,
-  disableMultipleSelection: PropTypes.func,
-  clearSelectedNotes: PropTypes.func
-};
 
 export default Mural;
