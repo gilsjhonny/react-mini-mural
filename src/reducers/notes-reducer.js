@@ -13,7 +13,6 @@ export default function(state = {}, action) {
       newNotes = { ...state };
       const { newId } = action;
       newNotes[newId] = { ...action.note, id: newId };
-      debugger;
       return newNotes;
 
     case NOTE_UPDATE:
