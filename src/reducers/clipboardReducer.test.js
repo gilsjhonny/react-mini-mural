@@ -1,4 +1,4 @@
-import clipboardReducer from "./clipboard-reducer";
+import clipboardReducer from "./clipboardReducer";
 import { CLIPBOARD_ADD, CLIPBOARD_CLEAR } from "../actionTypes";
 
 const mockState = () => ({
@@ -7,15 +7,18 @@ const mockState = () => ({
 });
 
 describe("clipboardReducer()", () => {
+  let expected;
+  let action;
+
   it("should return correct default state", () => {
-    const expected = {};
+    expected = {};
 
     expect(clipboardReducer(undefined, {})).toEqual(expected);
   });
 
   it("should handle CLIPBOARD_ADD", () => {
-    const expected = { 3: { note_id: 3 }, 4: { note_id: 4 } };
-    const action = {
+    expected = { 3: { note_id: 3 }, 4: { note_id: 4 } };
+    action = {
       type: CLIPBOARD_ADD,
       selectedNotes: { 3: { note_id: 3 }, 4: { note_id: 4 } }
     };
@@ -24,8 +27,8 @@ describe("clipboardReducer()", () => {
   });
 
   it("should handle CLIPBOARD_CLEAR", () => {
-    const expected = {};
-    const action = { type: CLIPBOARD_CLEAR };
+    expected = {};
+    action = { type: CLIPBOARD_CLEAR };
 
     expect(clipboardReducer(mockState(), action)).toEqual(expected);
   });

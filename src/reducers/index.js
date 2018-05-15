@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import mural from "./mural-reducer";
-import notes from "./notes-reducer";
-import clipboard from "./clipboard-reducer";
+import mural from "./muralReducer";
+import notes from "./notesReducer";
+import clipboard from "./clipboardReducer";
 
 export default combineReducers({
   mural,
