@@ -1,4 +1,6 @@
-## <img align="center" src="readme-header.png" alt="Markdownify" width="700">
+<p align="center">
+    <img align="center" src="readme-header.png" alt="Markdownify" width="700">
+</p>
 
 <h4 align="center">A simple mural with Sticky Notes. You can add, edit and delete Sticky Notes</h4>
 
