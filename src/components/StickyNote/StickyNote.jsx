@@ -32,12 +32,11 @@ class StickyNote extends React.Component {
   }
 
   componentDidMount() {
-    this.textarea.current.addEventListener("click", this.handleClick);
-    this.textarea.current.addEventListener("dblclick", this.handleDoubleClick);
-    this.textarea.current.addEventListener("input", this.handleInput);
+    this.textarea.current.addEventListener("click", this.selectNote);
+    this.textarea.current.addEventListener("dblclick", this.editNote);
   }
 
-  handleClick = e => {
+  selectNote = e => {
     const {
       id,
       setSelectedNote,
@@ -52,7 +51,7 @@ class StickyNote extends React.Component {
     }
   };
 
-  handleDoubleClick = () => {
+  editNote = () => {
     this.setState({ editMode: true });
     this.textarea.current.focus();
   };
@@ -84,13 +83,10 @@ class StickyNote extends React.Component {
     this.setState({ editMode: false });
   };
 
-  handleInput = () => {
-    console.log("Inputting");
-  };
-
   render() {
     const { editMode } = this.state;
     const { id, text, color, height, width, x, y, selected } = this.props;
+
     const StickyNoteClassnames = classnames("StickyNote", {
       selected: selected,
       "edit-mode": editMode
