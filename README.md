@@ -8,8 +8,7 @@
 
 ## Live Example
 
-You can test the application in the following link:
-https://react-mini-mural.netlify.com/
+You can test the application in the following link: <a href="https://react-mini-mural.netlify.com/" target="_blank">React Mini Mural</a>
 
 ## How to Use
 
