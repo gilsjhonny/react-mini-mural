@@ -34,15 +34,15 @@ $ yarn start
     <img align="center" src="images/react-mini-mural.png" alt="Markdownify" width="700">
 </p>
 
+<p align="center">
+    <img align="center" src="images/clipboard-manager.png" alt="Markdownify" width="700">
+</p>
+
 * Add Notes: Double Click
 * Select Note: Click
 * Multiple Selection: <kbd>Shift</kbd> + Click
 * Copy Notes: <kbd>CTRL</kbd>+<kbd>C</kbd>
 * Paste Notes: <kbd>CTRL</kbd>+<kbd>V</kbd>
-
-<p align="center">
-    <img align="center" src="images/clipboard-manager.png" alt="Markdownify" width="700">
-</p>
 
 ## Running the tests
 
