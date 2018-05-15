@@ -52,6 +52,16 @@ To run the tests of this project. From your command line:
 $ yarn test
 ```
 
+## Notes
+
+* Only reducers have tests
+* First time dealing with eventlisteners and React, it's quite tricky.
+* Only tested in Chrome
+
+## Things I would have liked to Add
+
+If I had more time I would have like to add more tests and try E2E tests with [puppeteer](https://github.com/GoogleChrome/puppeteer). Also it would be nice to save notes in localstorage.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
