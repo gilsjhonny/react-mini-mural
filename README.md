@@ -6,6 +6,11 @@
 
 <h4 align="center">A simple mural with Sticky Notes. You can add, edit and delete Sticky Notes</h4>
 
+## Live Example
+
+You can test the application in the following link:
+https://react-mini-mural.netlify.com/
+
 ## How to Use
 
 To clone and run this application, you'll need Git, Node.js and Yarn installed on your computer. From your command line:
